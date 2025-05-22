@@ -34,6 +34,7 @@ app.get("/wandelingen/:id", async (req, res) => {
 
 app.post("/nieuweWandeling", async (req, res) => {
     const{titel, bestemming, moeilijkheidsgraad, afstand_km, duur, beschrijving} = req.body;
+    console.log(req.body)
 
 
    if(!titel || !bestemming || !moeilijkheidsgraad || !afstand_km || !duur || !beschrijving){

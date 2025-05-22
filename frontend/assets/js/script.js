@@ -8,11 +8,11 @@ function init() {
   const openFormBtn = document.getElementById('open-form');
 
 
-  openFormBtn.addEventListener('click', () => {
-    formWrapper.classList.remove('hidden');
-    form.scrollIntoView({ behavior: 'smooth' });
-    resetForm();
-  });
+  //openFormBtn.addEventListener('click', () => {
+    //formWrapper.classList.remove('hidden');
+    //form.scrollIntoView({ behavior: 'smooth' });
+    //resetForm();
+  //});
 
   // Formulierverzending afhandelen
   form.addEventListener('submit', handleFormSubmit);
@@ -54,13 +54,14 @@ function renderWandelingen(wandelingen){
 
 function handleFormSubmit(e) {
   e.preventDefault();
+  console.log("form submitted");
 
-  const id = document.getElementById('absence-id').value;
+  const id = document.getElementById('wandeling-id').value;
   const wandeling = {
     titel: document.getElementById('titel').value,
     bestemming: document.getElementById('bestemming').value,
     moeilijkheidsgraad: document.getElementById('moeilijkheidsgraad').value,
-    afstand: document.getElementById('afstand').value,
+    afstand_km: document.getElementById('afstand').value,
     tijdsduur: document.getElementById('tijdsduur').value,
     beschrijving: document.getElementById('beschrijving').value
   };
@@ -73,10 +74,10 @@ function handleFormSubmit(e) {
   fetch(url, {
     method,
     headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify(absence)
+    body: JSON.stringify(wandeling)
   })
       .then(() => {
-        showAlert(id ? '✏️ Afwezigheid bijgewerkt!' : '✅ Afwezigheid toegevoegd!', 'success');
+        showAlert(id ? '✏️ wandeling bijgewerkt!' : '✅ wandeling toegevoegd!', 'success');
         resetForm();
         fetchWandelingen();
         document.getElementById('form-wrapper').classList.add('hidden')
@@ -96,7 +97,7 @@ function editWandeling(id) {
         document.getElementById('afstand').value = wandeling.afstand;
         document.getElementById('beschrijving').value = wandeling.beschrijving;
         document.getElementById('form-wrapper').classList.remove('hidden');
-        document.getElementById('absence-form').scrollIntoView({ behavior: 'smooth' });
+        document.getElementById('wandeling-form').scrollIntoView({ behavior: 'smooth' });
       });
 }
 
@@ -105,7 +106,7 @@ function deleteWandeling(id) {
   fetch(`http://localhost:3333/deleteWandeling/${id}`, { method: 'DELETE' })
       .then(() => {
         showAlert('🗑️ wandeling verwijderd.', 'success');
-        fetch();
+        fetchWandelingen();
       })
       .catch(() => showAlert('❌ Verwijderen mislukt.', 'error'));
 }
