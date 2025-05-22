@@ -1,0 +1,58 @@
+header{
+    background-color: #00a992;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fdc644;
+    margin-left: 200px;
+    margin-right: 200px;
+}
+nav{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #00a992;
+    margin-left: 200px;
+    margin-right: 200px;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+}
+
+li{
+    display: inline-block;
+    color: whitesmoke;
+    background: #fdc644;
+    border-radius: 15px;
+    padding: 5px;
+}
+button.save-btn {
+    background-color: #fdc644;
+    border-radius: 15px;
+    border-color: whitesmoke;
+    color: whitesmoke;
+}
+
+.form-section{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+}
+input{
+    border:1px solid lightslategrey;
+    border-radius: 5px;
+}
+
+th{
+    margin-right: 2px;
+    margin-left: 2px;
+    border: 1px solid lightslategrey;
+}
+#Tekstbeschrijving{
+    padding-right: 75px;
+}
+#teksttitel{
+    padding-right: 25px;
+}

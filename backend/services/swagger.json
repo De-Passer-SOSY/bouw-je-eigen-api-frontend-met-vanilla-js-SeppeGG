@@ -1,0 +1,138 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Wandeling API",
+    "version": "1.0.0",
+    "description": "Een eenvoudige API met wandelingen"
+  },
+  "servers": [
+    {
+      "url": "http://localhost:3333"
+    }
+  ],
+  "paths": {
+    "/wandelingen": {
+      "get": {
+        "summary": "Toon alle afwezigheden",
+        "responses": {
+          "200": {
+            "description": "Lijst van wandelingen"
+          }
+        }
+      }
+    },
+      "/wandelingen/{id}": {
+        "get": {
+          "summary": "Toon alle afwezigheden",
+          "responses": {
+            "200": {
+              "description": "Geeft één wandeling weer"
+            }
+          }
+        }
+      },
+      "/nieuweWandeling": {
+        "post": {
+          "summary": "Voeg een wandeling toe",
+          "requestBody": {
+            "required": true,
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "studentnaam": {
+                      "type": "string"
+                    },
+                    "reden": {
+                      "type": "string"
+                    },
+                    "datum": {
+                      "type": "string",
+                      "format": "date"
+                    },
+                    "periode": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "responses": {
+            "201": {
+              "description": "wandeling toegevoegd"
+            }
+          }
+        }
+      },
+      "/updateWandeling/{id}": {
+        "put": {
+          "summary": "Wijzig een wandeling",
+          "parameters": [
+            {
+              "in": "path",
+              "name": "id",
+              "required": true,
+              "schema": {
+                "type": "integer"
+              }
+            }
+          ],
+          "requestBody": {
+            "required": true,
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "studentnaam": {
+                      "type": "string"
+                    },
+                    "reden": {
+                      "type": "string"
+                    },
+                    "datum": {
+                      "type": "string",
+                      "format": "date"
+                    },
+                    "periode": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "responses": {
+            "200": {
+              "description": "wandeling bijgewerkt"
+            }
+          }
+        }
+      },
+      "/deleteWandeling/{id}": {
+        "delete": {
+          "summary": "Verwijder een wandeling",
+          "parameters": [
+            {
+              "in": "path",
+              "name": "id",
+              "required": true,
+              "schema": {
+                "type": "integer"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Verwijderd"
+            },
+            "404": {
+              "description": "Niet gevonden"
+            }
+          }
+        }
+      }
+    }
+  }

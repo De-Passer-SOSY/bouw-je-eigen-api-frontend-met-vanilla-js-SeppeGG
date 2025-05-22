@@ -1,10 +1,68 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Mijn wandelingen</title>
+    <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
+<header>
+    <h1>Mijn wandelingen bij Intersoc</h1>
+</header>
+<nav>
+    <ul>
+        <li>Home</li>
+        <li>Wandelingen</li>
+        <li>Over ons</li>
+    </ul>
+</nav>
+<section class="form-section hidden" id="form-wrapper" aria-label="Wandelingen toevoegen of wijzigen">
+      <form id="wandeling-form">
+        <input type="hidden" id="wandeling-id" />
+        <section class="form-group">
+          <label for="titel">Titel</label>
+          <input type="text" id="titel" required />
+        </section>
+        <section class="form-group">
+          <label for="bestemming">Bestemming</label>
+          <input type="text" id="bestemming" required />
+        </section>
+        <section class="form-group">
+          <label for="moeilijkheidsgraad">Moeilijkheidsgraad</label>
+          <input type="text" id="moeilijkheidsgraad" required />
+        </section>
+        <section class="form-group">
+          <label for="afstand">Afstand</label>
+          <input type="text" id="afstand" required />
+        </section>
+          <section class="form-group">
+          <label for="tijdsduur">Tijdsduur</label>
+          <input type="text" id="tijdsduur" required />
+        </section>
+          <section class="form-group">
+          <label for="beschrijving">Beschrijving</label>
+          <input type="text" id="beschrijving" required />
+        </section>
+        <button type="submit" class="save-btn">💾 Opslaan</button>
+      </form>
+    </section>
 
+
+<section class="table-section" aria-label="Overzicht wandelingen">
+      <table>
+        <thead>
+        <tr>
+          <th scope="col" id="teksttitel">Titel</th>
+          <th scope="col">Bestemming</th>
+          <th scope="col">Moeilijkheidsgraad</th>
+          <th scope="col">Afstand</th>
+          <th scope="col">Tijdsduur</th>
+          <th scope="col" id="Tekstbeschrijving">Beschrijving</th>
+        </tr>
+        </thead>
+        <tbody id="wandeling-list"></tbody>
+      </table>
+    </section>
 </body>
+<script src="assets/js/script.js"></script>
 </html>

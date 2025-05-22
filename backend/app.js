@@ -1,6 +1,9 @@
 const express = require('express');
 const cors = require('cors');
 const db = require('./services/db');
+const fs = require('fs');
+const swaggerUi = require('swagger-ui-express');
+const swaggerDocument = require('./services/swagger.json');
 
 const app = express();
 app.use(cors());
@@ -88,6 +91,11 @@ app.delete("/deleteWandeling/:id", async (req, res) => {
        res.status(500).json({message:"Internal server error"});
     }
 });
+
+app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocument));{
+
+}
+
 
 app.listen(3333, () => {
 console.log("API draait op http://localhost:3333");
