@@ -86,19 +86,12 @@ function handleFormSubmit(e) {
 }
 
 function editWandeling(id) {
-  fetch(`http://localhost:3333/updateWandeling/${id}`)
-      .then(res => res.json())
-      .then(wandeling => {
-          document.getElementById('wandeling-id').value = wandeling.id;
-        document.getElementById('titel').value = wandeling.titel;
-        document.getElementById('bestemming').value = wandeling.bestemming;
-        document.getElementById('moeilijkheidsgraad').value = wandeling.moeilijkheidsgraad;
-        document.getElementById('duur').value = wandeling.duur;
-        document.getElementById('afstand_km').value = wandeling.afstand_km;
-        document.getElementById('beschrijving').value = wandeling.beschrijving;
-        document.getElementById('form-wrapper').classList.remove('hidden');
-        document.getElementById('wandeling-form').scrollIntoView({ behavior: 'smooth' });
-      });
+  fetch(`http://localhost:3333/updateWandeling/${id}`, {
+      method: "PUT",
+      headers: {
+          "Content-Type": "application/json",
+      }
+  })
 }
 
 // Verwijder een afwezigheid

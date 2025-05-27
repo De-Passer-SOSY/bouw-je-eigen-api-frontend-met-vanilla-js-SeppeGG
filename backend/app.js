@@ -53,13 +53,13 @@ app.post("/nieuweWandeling", async (req, res) => {
 
 app.put("/updateWandeling/:id", async (req, res) => {
     const id = parseInt(req.params.id);
-    const{ titel, bestemming, moeilijkheidsgraad, afstand_km, tijdsduur, beschrijving } = req.body;
+    const{ titel, bestemming, moeilijkheidsgraad, afstand_km, duur, beschrijving } = req.body;
 
         if(!titel || !bestemming || !moeilijkheidsgraad || !afstand_km || !duur || !beschrijving){
             return res.status(400).json({message:"Vul alle velden in"});
         }
 
-    const count = await db("wandelingen").where({id}).update(titel, bestemming, moeilijkheidsgraad, afstand_km, tijdsduur, beschrijving);
+    const count = await db("wandelingen").where({id}).update(titel, bestemming, moeilijkheidsgraad, afstand_km, duur, beschrijving);
 
     try {
         if (count === 0) {
