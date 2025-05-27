@@ -53,31 +53,28 @@ app.post("/nieuweWandeling", async (req, res) => {
 
 app.put("/updateWandeling/:id", async (req, res) => {
     const id = parseInt(req.params.id);
-    const{titel, bestemming, moeilijkheidsgraad, afstand_km, duur, beschrijving} = req.body;
+    const{ titel, bestemming, moeilijkheidsgraad, afstand_km, tijdsduur, beschrijving } = req.body;
 
-    if(!titel || !bestemming || !moeilijkheidsgraad || !afstand_km || !duur || !beschrijving){
-        return res.status(400).json({message:"Vul alle velden in"});
-    }
+        if(!titel || !bestemming || !moeilijkheidsgraad || !afstand_km || !duur || !beschrijving){
+            return res.status(400).json({message:"Vul alle velden in"});
+        }
 
-    const count = await db("absences")
-        .where({id})
-        .update({titel, bestemming, moeilijkheidsgraad, afstand_km, duur, beschrijving});
+    const count = await db("wandelingen").where({id}).update(titel, bestemming, moeilijkheidsgraad, afstand_km, tijdsduur, beschrijving);
 
     try {
         if (count === 0) {
             res.status(404).json({error: "Wandeling niet gevonden"});
         }
 
-        const updated = await db("absences").where({id}).first();
-
         res.status(200).json({
                 message: "Wandeling bijgewerkt",
-                updated: updated
+                updated: await db("wandelingen").where({id}).first()
             }
         );
     }catch(error){
         res.status(500).json({message:"Fout bij het bijwerken van de wandeling"});
     }
+    res.json({message: "Bijgewerkt"});
 });
 
 app.delete("/deleteWandeling/:id", async (req, res) => {
@@ -93,10 +90,7 @@ app.delete("/deleteWandeling/:id", async (req, res) => {
     }
 });
 
-app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocument));{
-
-}
-
+app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
 app.listen(3333, () => {
 console.log("API draait op http://localhost:3333");

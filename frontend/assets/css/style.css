@@ -1,4 +1,4 @@
-header{
+header {
     background-color: #00a992;
     border-top-left-radius: 15px;
     border-top-right-radius: 15px;
@@ -9,7 +9,8 @@ header{
     margin-left: 200px;
     margin-right: 200px;
 }
-nav{
+
+nav {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -20,13 +21,14 @@ nav{
     border-bottom-right-radius: 15px;
 }
 
-li{
+li {
     display: inline-block;
     color: whitesmoke;
     background: #fdc644;
     border-radius: 15px;
     padding: 5px;
 }
+
 button.save-btn {
     background-color: #fdc644;
     border-radius: 15px;
@@ -34,25 +36,44 @@ button.save-btn {
     color: whitesmoke;
 }
 
-.form-section{
+.form-section {
     display: flex;
     justify-content: center;
     align-items: center;
     margin-top: 10px;
 }
-input{
-    border:1px solid lightslategrey;
+
+input {
+    border: 1px solid lightslategrey;
     border-radius: 5px;
 }
 
-th{
+th {
     margin-right: 2px;
     margin-left: 2px;
     border: 1px solid lightslategrey;
 }
-#Tekstbeschrijving{
+
+#Tekstbeschrijving {
     padding-right: 75px;
 }
-#teksttitel{
+
+#teksttitel {
     padding-right: 25px;
+}
+
+table {
+    border-radius: 10px;
+    tr:nth-child(even) {background-color: white;}
+    tr:nth-child(odd) {background-color: whitesmoke;}
+    table-border-color-dark: lightslategrey;
+}
+th{
+    border: 1px solid lightslategrey;
+    border-radius: 5px;
+}
+
+a{
+    color: white;
+    text-underline: none;
 }

@@ -41,17 +41,23 @@
                 "schema": {
                   "type": "object",
                   "properties": {
-                    "studentnaam": {
+                    "titel": {
                       "type": "string"
                     },
-                    "reden": {
+                    "bestemming": {
                       "type": "string"
                     },
-                    "datum": {
+                    "moeilijkheidsgraad": {
+                      "type": "string"
+                    },
+                    "afstand_km": {
                       "type": "string",
-                      "format": "date"
+                      "format": "number"
                     },
-                    "periode": {
+                    "duur": {
+                      "type": "string"
+                    },
+                    "beschrijving": {
                       "type": "string"
                     }
                   }
@@ -86,17 +92,23 @@
                 "schema": {
                   "type": "object",
                   "properties": {
-                    "studentnaam": {
+                    "titel": {
                       "type": "string"
                     },
-                    "reden": {
+                    "bestemming": {
                       "type": "string"
                     },
-                    "datum": {
+                    "moeilijkheidsgraad": {
+                      "type": "string"
+                    },
+                    "afstand_km": {
                       "type": "string",
-                      "format": "date"
+                      "format": "number"
                     },
-                    "periode": {
+                    "duur": {
+                      "type": "string"
+                    },
+                    "beschrijving": {
                       "type": "string"
                     }
                   }

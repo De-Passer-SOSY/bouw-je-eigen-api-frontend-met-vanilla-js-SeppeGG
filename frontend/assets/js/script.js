@@ -46,7 +46,7 @@ function renderWandelingen(wandelingen){
 
     // Voeg event listeners toe aan knoppen
     row.querySelector('.edit-btn').addEventListener('click', () => editWandeling(wandeling.id));
-    row.querySelector('.delete-btn').addEventListener('click', () => deleteWandeling(wandelingen.id));
+    row.querySelector('.delete-btn').addEventListener('click', () => deleteWandeling(wandeling.id));
 
     list.appendChild(row);
   });
@@ -61,14 +61,14 @@ function handleFormSubmit(e) {
     titel: document.getElementById('titel').value,
     bestemming: document.getElementById('bestemming').value,
     moeilijkheidsgraad: document.getElementById('moeilijkheidsgraad').value,
-    afstand_km: document.getElementById('afstand').value,
-    tijdsduur: document.getElementById('tijdsduur').value,
+    afstand_km: document.getElementById('afstand_km').value,
+    duur: document.getElementById('tijdsduur').value,
     beschrijving: document.getElementById('beschrijving').value
   };
 
   const method = id ? 'PUT' : 'POST';
   const url = id
-      ? `http://localhost:3333/updateWandeling/${id}`
+      ? `http://localhost:3333/updateWandelingf/${id}`
       : 'http://localhost:3333/nieuweWandeling';
 
   fetch(url, {
@@ -89,12 +89,12 @@ function editWandeling(id) {
   fetch(`http://localhost:3333/updateWandeling/${id}`)
       .then(res => res.json())
       .then(wandeling => {
-        document.getElementById('wandeling-id').value = wandeling.id;
+          document.getElementById('wandeling-id').value = wandeling.id;
         document.getElementById('titel').value = wandeling.titel;
         document.getElementById('bestemming').value = wandeling.bestemming;
         document.getElementById('moeilijkheidsgraad').value = wandeling.moeilijkheidsgraad;
-        document.getElementById('tijdsduur').value = wandeling.tijdsduur;
-        document.getElementById('afstand').value = wandeling.afstand;
+        document.getElementById('duur').value = wandeling.duur;
+        document.getElementById('afstand_km').value = wandeling.afstand_km;
         document.getElementById('beschrijving').value = wandeling.beschrijving;
         document.getElementById('form-wrapper').classList.remove('hidden');
         document.getElementById('wandeling-form').scrollIntoView({ behavior: 'smooth' });
