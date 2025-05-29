@@ -18,7 +18,7 @@ app.get("/wandelingen", async (req, res) => {
   }
 });
 
-app.get("/wandelingen/:id", async (req, res) => {
+app.get("/wandeling/:id", async (req, res) => {
     const {id} = req.params;
     try{
         const wandeling = await db("wandelingen").where("id", id);
@@ -55,11 +55,11 @@ app.put("/updateWandeling/:id", async (req, res) => {
     const id = parseInt(req.params.id);
     const{ titel, bestemming, moeilijkheidsgraad, afstand_km, duur, beschrijving } = req.body;
 
-        if(!titel || !bestemming || !moeilijkheidsgraad || !afstand_km || !duur || !beschrijving){
-            return res.status(400).json({message:"Vul alle velden in"});
-        }
+        // if(!titel || !bestemming || !moeilijkheidsgraad || !afstand_km || !duur || !beschrijving){
+        //     return res.status(400).json({message:"Vul alle velden in"});
+        // }
 
-    const count = await db("wandelingen").where({id}).update(titel, bestemming, moeilijkheidsgraad, afstand_km, duur, beschrijving);
+    const count = await db("wandelingen").where({id}).update({titel, bestemming, moeilijkheidsgraad, afstand_km, duur, beschrijving});
 
     try {
         if (count === 0) {

@@ -8,11 +8,11 @@ function init() {
   const openFormBtn = document.getElementById('open-form');
 
 
-  //openFormBtn.addEventListener('click', () => {
-    //formWrapper.classList.remove('hidden');
-    //form.scrollIntoView({ behavior: 'smooth' });
-    //resetForm();
-  //});
+  /*openFormBtn.addEventListener('click', () => {
+    formWrapper.classList.remove('hidden');
+    form.scrollIntoView({ behavior: 'smooth' });
+    resetForm();
+  });*/
 
   // Formulierverzending afhandelen
   form.addEventListener('submit', handleFormSubmit);
@@ -58,17 +58,17 @@ function handleFormSubmit(e) {
 
   const id = document.getElementById('wandeling-id').value;
   const wandeling = {
-    titel: document.getElementById('titel').value,
-    bestemming: document.getElementById('bestemming').value,
-    moeilijkheidsgraad: document.getElementById('moeilijkheidsgraad').value,
-    afstand_km: document.getElementById('afstand_km').value,
-    duur: document.getElementById('tijdsduur').value,
-    beschrijving: document.getElementById('beschrijving').value
+      titel: document.getElementById('titel').value,
+      bestemming: document.getElementById('bestemming').value,
+      moeilijkheidsgraad: document.getElementById('moeilijkheidsgraad').value,
+      afstand_km: document.getElementById('afstand_km').value,
+      duur: document.getElementById('tijdsduur').value,
+      beschrijving: document.getElementById('beschrijving').value
   };
 
   const method = id ? 'PUT' : 'POST';
   const url = id
-      ? `http://localhost:3333/updateWandelingf/${id}`
+      ? `http://localhost:3333/updateWandeling/${id}`
       : 'http://localhost:3333/nieuweWandeling';
 
   fetch(url, {
@@ -86,12 +86,23 @@ function handleFormSubmit(e) {
 }
 
 function editWandeling(id) {
-  fetch(`http://localhost:3333/updateWandeling/${id}`, {
-      method: "PUT",
-      headers: {
-          "Content-Type": "application/json",
-      }
-  })
+    if(!id){
+        console.log("geen id")
+    }
+  fetch(`http://localhost:3333/wandeling/${id}`)
+      .then(res => res.json())
+      .then(wandelingen => {
+          const wandeling = wandelingen[0];
+          document.getElementById('wandeling-id').value = wandeling.id;
+          document.getElementById('titel').value = wandeling.titel;
+          document.getElementById('bestemming').value = wandeling.bestemming;
+          document.getElementById('moeilijkheidsgraad').value = wandeling.moeilijkheidsgraad;
+          document.getElementById('afstand_km').value = wandeling.afstand_km;
+          document.getElementById('tijdsduur').value = wandeling.duur;
+          document.getElementById('beschrijving').value = wandeling.beschrijving;
+          document.getElementById('form-wrapper').classList.remove('hidden');
+          document.getElementById('wandeling-form').scrollIntoView({behavior: 'smooth'});
+      })
 }
 
 // Verwijder een afwezigheid
