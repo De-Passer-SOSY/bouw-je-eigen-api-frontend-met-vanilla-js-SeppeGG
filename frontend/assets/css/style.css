@@ -8,6 +8,9 @@ header {
     color: #fdc644;
     margin-left: 200px;
     margin-right: 200px;
+    border-top: 2px dashed #fdc644;
+    border-left: 2px dashed #fdc644;
+    border-right: 2px dashed #fdc644;
 }
 
 nav {
@@ -19,6 +22,9 @@ nav {
     margin-right: 200px;
     border-bottom-left-radius: 15px;
     border-bottom-right-radius: 15px;
+    border-bottom: 2px dashed #fdc644;
+    border-left: 2px dashed #fdc644;
+    border-right: 2px dashed #fdc644;
 }
 
 li {
@@ -62,20 +68,30 @@ th {
     padding-right: 25px;
 }
 
-table {
-    border-radius: 10px;
-    table-border-color-dark: lightslategrey;
-    background-image: url("../img/backgroundTable.jpeg");
-
-}
 th{
     border: 1px solid lightslategrey;
     border-radius: 5px;
 }
 
-
-a{
-    color: white;
-    text-underline: none;
+table{
+    position: relative;
+    z-index: 0;
+}
+td{
+    border: 1px solid lightslategrey;
+}
+table::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('../img/backgroundTable.jpeg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    opacity: 0.5;
+    z-index: -1;
 }
 
