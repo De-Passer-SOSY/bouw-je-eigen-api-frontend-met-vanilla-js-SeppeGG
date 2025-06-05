@@ -36,7 +36,7 @@ li {
 }
 
 button.save-btn {
-    background-color: #fdc644;
+    background-color: #d9af92;
     border-radius: 15px;
     border-color: whitesmoke;
     color: whitesmoke;
@@ -47,6 +47,13 @@ button.save-btn {
     justify-content: center;
     align-items: center;
     margin-top: 10px;
+    color: #d9af92;
+    background: #a18f91;
+    margin-left: 450px;
+    margin-right: 450px;
+    border-radius: 15px;
+    border: #d9b090 dotted 2px;
+
 }
 
 input {
