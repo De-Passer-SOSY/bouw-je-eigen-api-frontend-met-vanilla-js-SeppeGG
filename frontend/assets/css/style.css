@@ -59,6 +59,7 @@ button.save-btn {
 input {
     border: 1px solid lightslategrey;
     border-radius: 5px;
+    padding-right: 10px;
 }
 
 th {
