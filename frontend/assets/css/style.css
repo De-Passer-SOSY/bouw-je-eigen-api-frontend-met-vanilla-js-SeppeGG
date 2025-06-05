@@ -49,8 +49,8 @@ button.save-btn {
     margin-top: 10px;
     color: #d9af92;
     background: #a18f91;
-    margin-left: 35%;
-    margin-right: 35%;
+    margin-left: 450px;
+    margin-right: 450px;
     border-radius: 15px;
     border: #d9b090 dotted 2px;
 
@@ -58,8 +58,9 @@ button.save-btn {
 
 input {
     border: 1px solid lightslategrey;
-    border-radius: 5px;
-    padding-right: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 th {
