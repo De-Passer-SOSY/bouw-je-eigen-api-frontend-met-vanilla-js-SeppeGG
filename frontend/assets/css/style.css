@@ -64,16 +64,17 @@ th {
 
 table {
     border-radius: 10px;
-    tr:nth-child(even) {background-color: white;}
-    tr:nth-child(odd) {background-color: whitesmoke;}
-    table-border-color-dark: lightslategrey;
+    table-border-color-dark: lightslategrey;background-image: url("../img/backgroundTable.jpeg");
+
 }
 th{
     border: 1px solid lightslategrey;
     border-radius: 5px;
 }
 
+
 a{
     color: white;
     text-underline: none;
 }
+
