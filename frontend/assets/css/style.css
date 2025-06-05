@@ -64,7 +64,8 @@ th {
 
 table {
     border-radius: 10px;
-    table-border-color-dark: lightslategrey;background-image: url("../img/backgroundTable.jpeg");
+    table-border-color-dark: lightslategrey;
+    background-image: url("../img/backgroundTable.jpeg");
 
 }
 th{
